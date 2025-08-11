@@ -9,7 +9,11 @@ function Gallery({ articles, setArticals }) {
     });
   }, []);
 
-  return <ArticleCard articles={articles}></ArticleCard>;
+  return (
+    <section className="main-container">
+      <ArticleCard articles={articles}></ArticleCard>
+    </section>
+  );
 }
 
 export default Gallery;
