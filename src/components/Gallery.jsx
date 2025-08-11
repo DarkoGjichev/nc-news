@@ -1,22 +1,15 @@
 import { useEffect, useState } from "react";
 import fetchArticles from "../api/fetch-articles";
+import ArticleCard from "./ArticleCard";
 
-function Gallery() {
-  const [articles, setArticals] = useState([]);
+function Gallery({ articles, setArticals }) {
   useEffect(() => {
     fetchArticles().then(({ articles }) => {
       setArticals(articles);
     });
   }, []);
 
-  return articles.map((article) => {
-    return (
-      <>
-        <h2>{article.title}</h2>
-        <img src={article.article_img_url} alt="" />
-      </>
-    );
-  });
+  return <ArticleCard articles={articles}></ArticleCard>;
 }
 
 export default Gallery;
