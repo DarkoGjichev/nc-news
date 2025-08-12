@@ -1,13 +1,4 @@
-import { useEffect } from "react";
-import fetchSingleArticle from "../api/fetch-single-article";
-
 function ArticleBody({ singleArticle, setSingleArticle, article_id }) {
-  useEffect(() => {
-    fetchSingleArticle(article_id).then(({ article }) => {
-      setSingleArticle(article);
-    });
-  }, []);
-
   return (
     <main className="article-container">
       <img
