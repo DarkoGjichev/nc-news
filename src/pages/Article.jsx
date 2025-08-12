@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import fetchSingleArticle from "../api/fetch-single-article";
 import ArticleBody from "../components/ArticleBody";
+import Comments from "./Comments";
 
 function Article() {
   const { article_id } = useParams();
@@ -19,6 +20,7 @@ function Article() {
         singleArticle={singleArticle}
         setSingleArticle={setSingleArticle}
       ></ArticleBody>
+      <Comments article_id={article_id} />
     </main>
   );
 }
