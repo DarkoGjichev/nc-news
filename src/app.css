@@ -19,6 +19,12 @@
   border: 1px solid #444;
 }
 
+.article-container {
+  width: 100%;
+  max-width: 678px;
+  margin: 0 auto;
+}
+
 .image-wrapper {
   width: 100%;
 }

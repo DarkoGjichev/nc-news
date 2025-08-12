@@ -9,7 +9,7 @@ function ArticleBody({ singleArticle, setSingleArticle, article_id }) {
   }, []);
 
   return (
-    <>
+    <main className="article-container">
       <img
         className="image-wrapper"
         src={singleArticle.article_img_url}
@@ -26,7 +26,7 @@ function ArticleBody({ singleArticle, setSingleArticle, article_id }) {
         <li>Total comments: {singleArticle.comment_count}</li>
         <li>Total votes: {singleArticle.votes}</li>
       </ul>
-    </>
+    </main>
   );
 }
 
