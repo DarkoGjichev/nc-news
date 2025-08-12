@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 function ArticleCard({ articles }) {
   return articles.map((article) => {
     return (
       <article className="article-card" key={article.article_id}>
         <img className="image-wrapper" src={article.article_img_url} alt="" />
-        <h2>{article.title}</h2>
+        <h2>
+          <Link to={`/articles/${article.article_id}`}>{article.title}</Link>
+        </h2>
         <ul>
           <li>Created by: {article.author}</li>
           <li>Topic: {article.topic}</li>
