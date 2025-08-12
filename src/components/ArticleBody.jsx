@@ -4,14 +4,17 @@ import fetchSingleArticle from "../api/fetch-single-article";
 function ArticleBody({ singleArticle, setSingleArticle, article_id }) {
   useEffect(() => {
     fetchSingleArticle(article_id).then(({ article }) => {
-      console.log(article);
       setSingleArticle(article);
     });
   }, []);
 
   return (
     <>
-      <img src={singleArticle.article_img_url} alt="" />
+      <img
+        className="image-wrapper"
+        src={singleArticle.article_img_url}
+        alt=""
+      />
       <h1>{singleArticle.title}</h1>
       <p>{singleArticle.body}</p>
       <ul>

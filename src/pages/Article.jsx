@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 
 function Article() {
   const { article_id } = useParams();
-
   const [singleArticle, setSingleArticle] = useState([]);
   return (
     <main>
