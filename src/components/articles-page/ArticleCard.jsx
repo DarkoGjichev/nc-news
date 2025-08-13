@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 
 function ArticleCard({ articles }) {
   return articles.map((article) => {
+    const date = new Date(article.created_at);
+    const formattedDate = date.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     return (
       <article className="article-card" key={article.article_id}>
         <img className="image-wrapper" src={article.article_img_url} alt="" />
@@ -13,7 +21,7 @@ function ArticleCard({ articles }) {
           <li>Topic: {article.topic}</li>
           <li>Total Votes: {article.votes}</li>
           <li>Total Comments: {article.comment_count}</li>
-          <li>{article.created_at}</li>
+          <li>{formattedDate}</li>
         </ul>
       </article>
     );
