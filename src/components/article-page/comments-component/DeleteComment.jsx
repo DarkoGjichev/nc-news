@@ -1,4 +1,10 @@
-function DeleteComment({ comment_id, setComments, setCommentInc }) {
+function DeleteComment({
+  comment_id,
+  setComments,
+  setCommentInc,
+  username,
+  author,
+}) {
   const handleDelete = (comment_id) => {
     fetch(
       `https://seeding-nc-news-3h3w.onrender.com/api/comments/${comment_id}`,
@@ -16,14 +22,15 @@ function DeleteComment({ comment_id, setComments, setCommentInc }) {
         console.error("Error deleting comment:", error);
       });
   };
-
-  return (
-    <button
-      className="delete-comment-button"
-      onClick={() => handleDelete(comment_id)}
-    >
-      Delete Comment
-    </button>
-  );
+  if (username === author) {
+    return (
+      <button
+        className="delete-comment-button"
+        onClick={() => handleDelete(comment_id)}
+      >
+        Delete Comment
+      </button>
+    );
+  }
 }
 export default DeleteComment;

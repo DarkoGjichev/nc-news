@@ -1,4 +1,4 @@
-function postComment(article_id, commentText) {
+function postComment(article_id, username, commentText) {
   return fetch(
     `https://seeding-nc-news-3h3w.onrender.com/api/articles/${article_id}/comments`,
     {
@@ -6,7 +6,7 @@ function postComment(article_id, commentText) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: "jessjelly", body: commentText }),
+      body: JSON.stringify({ username: username, body: commentText }),
     }
   ).then((response) => {
     return response.json();

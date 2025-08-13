@@ -1,7 +1,6 @@
 import DeleteComment from "./DeleteComment";
 
-function CommentCard({ comments, setComments, setCommentInc }) {
-  console.log("Rendering CommentCard with comments:", comments);
+function CommentCard({ comments, setComments, setCommentInc, username }) {
   return comments.map((comment) => {
     return (
       <li className="comment-field" key={comment.comment_id}>
@@ -10,9 +9,11 @@ function CommentCard({ comments, setComments, setCommentInc }) {
         <p>Timestamp: {comment.created_at}</p>
         <p>Total votes: {comment.votes}</p>
         <DeleteComment
+          author={comment.author}
           comment_id={comment.comment_id}
           setComments={setComments}
           setCommentInc={setCommentInc}
+          username={username}
         />
       </li>
     );

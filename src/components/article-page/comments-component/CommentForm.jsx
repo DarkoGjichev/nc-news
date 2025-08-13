@@ -1,14 +1,14 @@
 import { useState } from "react";
 import postComment from "../../../api/post-a-comment";
 
-function CommentForm({ article_id, setComments, setCommentInc }) {
+function CommentForm({ article_id, setComments, setCommentInc, username }) {
   const [commentText, setCommentText] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (commentText.trim() === "") return;
 
-    postComment(article_id, commentText).then(({ postedComment }) => {
+    postComment(article_id, username, commentText).then(({ postedComment }) => {
       setComments((prevComments) => [postedComment, ...prevComments]);
       setCommentInc((prevCommentInc) => prevCommentInc + 1);
       setCommentText("");
