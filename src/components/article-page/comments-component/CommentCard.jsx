@@ -1,4 +1,6 @@
-function CommentCard({ comments }) {
+import DeleteComment from "./DeleteComment";
+
+function CommentCard({ comments, setComments, setCommentInc }) {
   console.log("Rendering CommentCard with comments:", comments);
   return comments.map((comment) => {
     return (
@@ -7,6 +9,11 @@ function CommentCard({ comments }) {
         <p>{comment.body}</p>
         <p>Timestamp: {comment.created_at}</p>
         <p>Total votes: {comment.votes}</p>
+        <DeleteComment
+          comment_id={comment.comment_id}
+          setComments={setComments}
+          setCommentInc={setCommentInc}
+        />
       </li>
     );
   });

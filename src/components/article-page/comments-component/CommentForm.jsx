@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import postComment from "../../../api/post-a-comment";
 
-function CommentForm({ article_id, setComments }) {
+function CommentForm({ article_id, setComments, setCommentInc }) {
   const [commentText, setCommentText] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (commentText.trim() === "") return; // Prevent empty comments
+    if (commentText.trim() === "") return;
 
     postComment(article_id, commentText).then(({ postedComment }) => {
       setComments((prevComments) => [postedComment, ...prevComments]);
+      setCommentInc((prevCommentInc) => prevCommentInc + 1);
       setCommentText("");
     });
   };

@@ -5,6 +5,7 @@ import CommentForm from "./comments-component/CommentForm";
 
 function Comments({ article_id, comment_count }) {
   const [comments, setComments] = useState([]);
+  const [commentInc, setCommentInc] = useState(0);
   useEffect(() => {
     fetchComments(article_id).then(({ comments }) => {
       setComments(comments);
@@ -13,11 +14,21 @@ function Comments({ article_id, comment_count }) {
 
   return (
     <>
-      <ul className="comment-wrapper">
-        <CommentForm article_id={article_id} setComments={setComments} />
-        <p>Total comments: {comment_count}</p>
-        <CommentCard comments={comments} />
-      </ul>
+      <section className="comment-wrapper">
+        <CommentForm
+          article_id={article_id}
+          setComments={setComments}
+          setCommentInc={setCommentInc}
+        />
+        <p>Total comments: {comment_count + commentInc}</p>
+        <ul className="comments-container">
+          <CommentCard
+            comments={comments}
+            setComments={setComments}
+            setCommentInc={setCommentInc}
+          />
+        </ul>
+      </section>
     </>
   );
 }
