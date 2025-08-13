@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import fetchComments from "../../api/fetch-comments";
-import Comment from "./comments-component/Comment";
+import CommentCard from "./comments-component/CommentCard";
+import CommentForm from "./comments-component/CommentForm";
 
 function Comments({ article_id, comment_count }) {
   const [comments, setComments] = useState([]);
@@ -13,8 +14,9 @@ function Comments({ article_id, comment_count }) {
   return (
     <>
       <ul className="comment-wrapper">
+        <CommentForm article_id={article_id} setComments={setComments} />
         <p>Total comments: {comment_count}</p>
-        <Comment comments={comments} />
+        <CommentCard comments={comments} />
       </ul>
     </>
   );

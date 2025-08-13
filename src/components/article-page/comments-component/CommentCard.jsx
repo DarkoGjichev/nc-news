@@ -1,4 +1,5 @@
-function Comment({ comments }) {
+function CommentCard({ comments }) {
+  console.log("Rendering CommentCard with comments:", comments);
   return comments.map((comment) => {
     return (
       <li className="comment-field" key={comment.comment_id}>
@@ -11,4 +12,4 @@ function Comment({ comments }) {
   });
 }
 
-export default Comment;
+export default CommentCard;
