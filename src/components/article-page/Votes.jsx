@@ -1,5 +1,5 @@
 import { useState } from "react";
-import patchVotes from "../api/patch-votes-on-article";
+import patchVotes from "../../api/patch-votes-on-article";
 
 function Votes({ votes, article_id }) {
   const [optimisticVotes, setOptimisticVotes] = useState(0);
