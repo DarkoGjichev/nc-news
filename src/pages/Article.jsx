@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import fetchSingleArticle from "../api/fetch-single-article";
-import ArticleBody from "../components/ArticleBody";
 import Comments from "../components/article-page/Comments";
 import Votes from "../components/article-page/Votes";
 import Tags from "../components/article-page/Tags";

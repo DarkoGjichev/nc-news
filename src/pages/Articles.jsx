@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import fetchArticles from "../api/fetch-articles";
-import Toolbar from "../components/Toolbar";
-import ArticleCard from "../components/ArticleCard";
+import Toolbar from "../components/articles-page/Toolbar";
+import ArticleCard from "../components/articles-page/ArticleCard";
 
 function Articles() {
   const [articles, setArticals] = useState([]);
