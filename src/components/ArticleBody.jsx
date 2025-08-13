@@ -1,6 +1,6 @@
 import Votes from "./Votes";
 
-function ArticleBody({ singleArticle }) {
+function ArticleBody({ singleArticle, article_id }) {
   return (
     <main className="article-container">
       <img
@@ -18,7 +18,7 @@ function ArticleBody({ singleArticle }) {
       <ul>
         <li>Total comments: {singleArticle.comment_count}</li>
         <li>
-          <Votes votes={singleArticle.votes} />
+          <Votes votes={singleArticle.votes} article_id={article_id} />
         </li>
       </ul>
     </main>
