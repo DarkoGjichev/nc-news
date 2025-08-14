@@ -1,5 +1,10 @@
-function fetchArticles() {
-  return fetch(`https://seeding-nc-news-3h3w.onrender.com/api/articles`)
+function fetchArticles(topic) {
+  console.log(topic);
+  let path = `https://seeding-nc-news-3h3w.onrender.com/api/articles`;
+  if (topic) {
+    path = path + `?topic=${topic}`;
+  }
+  return fetch(path)
     .then((response) => {
       return response.json();
     })
