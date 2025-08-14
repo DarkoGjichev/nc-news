@@ -1,4 +1,4 @@
-import Filter from "./toolbar-components/Filter";
+import Order from "./toolbar-components/Order";
 import SortBy from "./toolbar-components/SortBy";
 
 function Toolbar({ setSortBy, setOrderBy }) {
@@ -8,33 +8,15 @@ function Toolbar({ setSortBy, setOrderBy }) {
     const formId = event.target.id;
     if (formId === "sort-by") {
       setSortBy(value);
-    } else if (formId === "order-by") {
+    } else if (formId === "order") {
       setOrderBy(value);
     }
   }
   return (
-    <>
-      <label htmlFor="sort-by">Sort By</label>
-      <select
-        onChange={(event) => handleClick(event)}
-        name="sort-by"
-        id="sort-by"
-      >
-        <option value="created_at">Date</option>
-        <option value="comment_count">Comments</option>
-        <option value="votes">Votes</option>
-      </select>
-
-      <label htmlFor="order-by">Order By</label>
-      <select
-        onChange={(event) => handleClick(event)}
-        name="order-by"
-        id="order-by"
-      >
-        <option value="DESC">DESC</option>
-        <option value="ASC">ASC</option>
-      </select>
-    </>
+    <section className="toolbar">
+      <SortBy handleClick={handleClick} />
+      <Order handleClick={handleClick} />
+    </section>
   );
 }
 
