@@ -8,16 +8,25 @@ function Articles() {
   const [searchParams] = useSearchParams();
   const topic = searchParams.get("topic");
   const [articles, setArticals] = useState([]);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [orderBy, setOrderBy] = useState("DESC");
+  console.log(articles, "in articles");
   useEffect(() => {
-    fetchArticles(topic).then(({ articles }) => {
+    fetchArticles(topic, sortBy, orderBy).then(({ articles }) => {
       setArticals(articles);
     });
-  }, [topic]);
+  }, [topic, sortBy, orderBy]);
+
   return (
-    <main>
+    <main className="main-container">
       <h1>{topic ? topic : "All articles"}</h1>
-      <Toolbar articles={articles} setArticals={setArticals}></Toolbar>
-      <section className="main-container">
+      <Toolbar
+        articles={articles}
+        setArticals={setArticals}
+        setSortBy={setSortBy}
+        setOrderBy={setOrderBy}
+      ></Toolbar>
+      <section>
         <ArticleCard articles={articles}></ArticleCard>
       </section>
     </main>
