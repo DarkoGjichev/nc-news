@@ -10,7 +10,6 @@ function Articles() {
   const [articles, setArticals] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("DESC");
-  console.log(articles, "in articles");
   useEffect(() => {
     fetchArticles(topic, sortBy, orderBy).then(({ articles }) => {
       setArticals(articles);

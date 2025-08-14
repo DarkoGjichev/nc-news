@@ -31,8 +31,8 @@ function Toolbar({ setSortBy, setOrderBy }) {
         name="order-by"
         id="order-by"
       >
-        <option value="ASC">ASC</option>
         <option value="DESC">DESC</option>
+        <option value="ASC">ASC</option>
       </select>
     </>
   );
