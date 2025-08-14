@@ -5,36 +5,45 @@ import Comments from "../components/article-page/Comments";
 import Votes from "../components/article-page/Votes";
 import Tags from "../components/article-page/Tags";
 import Text from "../components/article-page/Text";
+import ErrorPage from "../pages/ErrorPage";
 
 function Article() {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState([]);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    fetchSingleArticle(article_id).then(({ article }) => {
-      setSingleArticle(article);
-    });
+    fetchSingleArticle(article_id)
+      .then(({ article }) => {
+        setSingleArticle(article);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
-
-  return (
-    <main className="article-container">
-      <img
-        className="image-wrapper"
-        src={singleArticle.article_img_url}
-        alt=""
-      />
-      <Tags
-        topic={singleArticle.topic}
-        author={singleArticle.author}
-        created_at={singleArticle.created_at}
-      />
-      <Text title={singleArticle.title} body={singleArticle.body} />
-      <Votes votes={singleArticle.votes} article_id={article_id} />
-      <Comments
-        article_id={article_id}
-        comment_count={singleArticle.comment_count}
-      />
-    </main>
-  );
+  if (error) {
+    return <ErrorPage />;
+  } else {
+    return (
+      <main className="article-container">
+        <img
+          className="image-wrapper"
+          src={singleArticle.article_img_url}
+          alt=""
+        />
+        <Tags
+          topic={singleArticle.topic}
+          author={singleArticle.author}
+          created_at={singleArticle.created_at}
+        />
+        <Text title={singleArticle.title} body={singleArticle.body} />
+        <Votes votes={singleArticle.votes} article_id={article_id} />
+        <Comments
+          article_id={article_id}
+          comment_count={singleArticle.comment_count}
+        />
+      </main>
+    );
+  }
 }
 
 export default Article;
