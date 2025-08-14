@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./articles.css";
 
 function ArticleCard({ articles }) {
   return articles.map((article) => {
@@ -11,18 +12,32 @@ function ArticleCard({ articles }) {
       minute: "2-digit",
     });
     return (
-      <article className="article-card" key={article.article_id}>
-        <img className="image-wrapper" src={article.article_img_url} alt="" />
-        <h2>
-          <Link to={`/articles/${article.article_id}`}>{article.title}</Link>
-        </h2>
-        <ul>
-          <li>Created by: {article.author}</li>
-          <li>Topic: {article.topic}</li>
-          <li>Total Votes: {article.votes}</li>
-          <li>Total Comments: {article.comment_count}</li>
-          <li>{formattedDate}</li>
-        </ul>
+      <article className="article_card" key={article.article_id}>
+        <Link to={`/articles/${article.article_id}`}>
+          <div className="image_container">
+            <img
+              className="image_container--image"
+              src={article.article_img_url}
+              alt=""
+            />
+            <ul className="image_container--list">
+              <div className="image_container--reactions">
+                <li className="image_container--listItem">
+                  <i class="fa-solid fa-thumbs-up"></i> {article.votes}
+                </li>
+                <li className="image_container--listItem">
+                  <i class="fa-solid fa-comment"></i> {article.comment_count}
+                </li>
+              </div>
+              <li className="image_container--listItem">{formattedDate}</li>
+            </ul>
+          </div>
+          <h2 className="article_card--title">{article.title}</h2>
+        </Link>
+        <p className="article_card--info">
+          <span>#{article.topic}</span> · <i class="fa-solid fa-user"></i>{" "}
+          {article.author}
+        </p>
       </article>
     );
   });

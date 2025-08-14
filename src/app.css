@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -35,19 +39,12 @@ nav a:hover {
   color: #efdb2d;
 }
 
-.red {
-  width: 100%;
-  height: 160px;
-  background-color: red;
-}
-
 .main-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 1140px;
   box-sizing: border-box;
-  padding: 0 1rem;
   margin: 0 auto;
 }
 
@@ -55,37 +52,7 @@ nav a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* gap: 1rem; */
   margin: 1rem 0;
-}
-
-.article-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 320px;
-  box-sizing: border-box;
-}
-
-/* 
-
-.article-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 300px;
-  padding: 0.5rem;
-  border: 1px solid #444;
-}
-
-.article-container {
-  width: 100%;
-  max-width: 678px;
-  margin: 0 auto;
-}
-
-.image-wrapper {
-  width: 100%;
 }
 
 .comment-wrapper {
@@ -104,22 +71,10 @@ nav a:hover {
   border: 1px solid black;
 }
 
-.fa-thumbs-up,
-.fa-thumbs-down {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.fa-thumbs-down {
-  position: relative;
-  top: 4px;
-  margin-left: 0.5rem;
-}
-
 .votes-container {
   width: max-content;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin: 0 auto;
-} */
+}
