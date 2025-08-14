@@ -23,10 +23,11 @@ function ArticleCard({ articles }) {
             <ul className="image_container--list">
               <div className="image_container--reactions">
                 <li className="image_container--listItem">
-                  <i class="fa-solid fa-thumbs-up"></i> {article.votes}
+                  <i className="fa-solid fa-thumbs-up"></i> {article.votes}
                 </li>
                 <li className="image_container--listItem">
-                  <i class="fa-solid fa-comment"></i> {article.comment_count}
+                  <i className="fa-solid fa-comment"></i>
+                  {article.comment_count}
                 </li>
               </div>
               <li className="image_container--listItem">{formattedDate}</li>
@@ -35,7 +36,7 @@ function ArticleCard({ articles }) {
           <h2 className="article_card--title">{article.title}</h2>
         </Link>
         <p className="article_card--info">
-          <span>#{article.topic}</span> · <i class="fa-solid fa-user"></i>{" "}
+          <span>#{article.topic}</span> · <i className="fa-solid fa-user"></i>{" "}
           {article.author}
         </p>
       </article>
