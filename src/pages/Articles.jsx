@@ -18,14 +18,16 @@ function Articles() {
 
   return (
     <main className="main-container">
-      <h1>{topic ? topic : "All articles"}</h1>
+      <h1>
+        {topic ? `Everything about ${topic}` : "The whole world in one place"}
+      </h1>
       <Toolbar
         articles={articles}
         setArticals={setArticals}
         setSortBy={setSortBy}
         setOrderBy={setOrderBy}
       ></Toolbar>
-      <section>
+      <section className="gallery-container">
         <ArticleCard articles={articles}></ArticleCard>
       </section>
     </main>
