@@ -15,7 +15,7 @@ function Comments({ article_id, comment_count }) {
   }, []);
   return (
     <>
-      <section className="comment-wrapper">
+      <section className="comments--wrapper">
         <CommentForm
           article_id={article_id}
           setComments={setComments}
