@@ -1,4 +1,4 @@
-function Tags({ topic, author, created_at }) {
+function Tags({ author, created_at }) {
   const date = new Date(created_at);
   const formattedDate = date.toLocaleDateString("en-GB", {
     year: "numeric",
@@ -8,13 +8,9 @@ function Tags({ topic, author, created_at }) {
     minute: "2-digit",
   });
   return (
-    <>
-      <ul>
-        <li># {topic}</li>
-        <li>Created by: {author}</li>
-        <li>{formattedDate}</li>
-      </ul>
-    </>
+    <p>
+      <i className="fa-solid fa-user"></i> {author} · {formattedDate}
+    </p>
   );
 }
 export default Tags;

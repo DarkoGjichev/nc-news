@@ -12,10 +12,14 @@ function Votes({ votes, article_id }) {
     });
   };
   return (
-    <section className="votes-container">
-      <button onClick={() => handleClick(-1)}>-1</button>
-      <p>Total votes: {votes + optimisticVotes}</p>
-      <button onClick={() => handleClick(1)}>+1</button>
+    <section className="votes--container">
+      <p className="votes--total">Total votes: {votes + optimisticVotes}</p>
+      <button className="votes--button" onClick={() => handleClick(-1)}>
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
+      <button className="votes--button" onClick={() => handleClick(1)}>
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
     </section>
   );
 }
