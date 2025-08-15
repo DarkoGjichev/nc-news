@@ -11,11 +11,11 @@ function CommentCard({ comments, setComments, setCommentInc, username }) {
       minute: "2-digit",
     });
     return (
-      <li className="comment-field" key={comment.comment_id}>
+      <li className="comment_card" key={comment.comment_id}>
         <p>{comment.author}</p>
         <p>{comment.body}</p>
-        <p>Timestamp: {formattedDate}</p>
-        <p>Total votes: {comment.votes}</p>
+        <p className="comment_card--time">{formattedDate}</p>
+        {/* <p>Total votes: {comment.votes}</p> */}
         <DeleteComment
           author={comment.author}
           comment_id={comment.comment_id}

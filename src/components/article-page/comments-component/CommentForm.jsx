@@ -20,8 +20,13 @@ function CommentForm({ article_id, setComments, setCommentInc, username }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="comment_form--form" onSubmit={handleSubmit}>
       <textarea
+        className={
+          error
+            ? "comment_form--textarea comment_form--error"
+            : "comment_form--textarea"
+        }
         value={commentText}
         onChange={(event) => {
           setCommentText(event.target.value);
@@ -29,7 +34,9 @@ function CommentForm({ article_id, setComments, setCommentInc, username }) {
         }}
         placeholder={error ? error : "Add a comment..."}
       />
-      <button type="submit">Submit</button>
+      <button className="comment_form--button" type="submit">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
     </form>
   );
 }

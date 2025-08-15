@@ -68,8 +68,8 @@
 }
 .comment_form--form {
   position: relative;
-  z-index: -1;
 }
+
 .comment_form--textarea {
   width: 100%;
   min-width: 100%;

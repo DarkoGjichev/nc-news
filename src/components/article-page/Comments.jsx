@@ -23,7 +23,7 @@ function Comments({ article_id, comment_count }) {
           username={username}
         />
         <p>Total comments: {comment_count + commentInc}</p>
-        <ul className="comments-container">
+        <ul className="comments--container">
           <CommentCard
             comments={comments}
             setComments={setComments}
