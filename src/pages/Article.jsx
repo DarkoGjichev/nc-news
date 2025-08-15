@@ -6,6 +6,7 @@ import Votes from "../components/article-page/Votes";
 import Tags from "../components/article-page/Tags";
 import Text from "../components/article-page/Text";
 import ErrorPage from "../pages/ErrorPage";
+import "../components/article-page/article.css";
 
 function Article() {
   const { article_id } = useParams();
@@ -27,16 +28,19 @@ function Article() {
   return (
     <main className="article-container">
       <img
-        className="image-wrapper"
+        className="article-image"
         src={singleArticle.article_img_url}
         alt=""
       />
       <Tags
-        topic={singleArticle.topic}
         author={singleArticle.author}
         created_at={singleArticle.created_at}
       />
-      <Text title={singleArticle.title} body={singleArticle.body} />
+      <Text
+        topic={singleArticle.topic}
+        title={singleArticle.title}
+        body={singleArticle.body}
+      />
       <Votes votes={singleArticle.votes} article_id={article_id} />
       <Comments
         article_id={article_id}
