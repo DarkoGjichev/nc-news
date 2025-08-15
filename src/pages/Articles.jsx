@@ -13,6 +13,7 @@ function Articles() {
   const [orderBy, setOrderBy] = useState("DESC");
   const [error, setError] = useState(null);
   useEffect(() => {
+    setError(null);
     fetchArticles(topic, sortBy, orderBy)
       .then(({ articles }) => {
         setArticals(articles);
