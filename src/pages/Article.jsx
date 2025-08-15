@@ -22,28 +22,28 @@ function Article() {
   }, []);
   if (error) {
     return <ErrorPage />;
-  } else {
-    return (
-      <main className="article-container">
-        <img
-          className="image-wrapper"
-          src={singleArticle.article_img_url}
-          alt=""
-        />
-        <Tags
-          topic={singleArticle.topic}
-          author={singleArticle.author}
-          created_at={singleArticle.created_at}
-        />
-        <Text title={singleArticle.title} body={singleArticle.body} />
-        <Votes votes={singleArticle.votes} article_id={article_id} />
-        <Comments
-          article_id={article_id}
-          comment_count={singleArticle.comment_count}
-        />
-      </main>
-    );
   }
+
+  return (
+    <main className="article-container">
+      <img
+        className="image-wrapper"
+        src={singleArticle.article_img_url}
+        alt=""
+      />
+      <Tags
+        topic={singleArticle.topic}
+        author={singleArticle.author}
+        created_at={singleArticle.created_at}
+      />
+      <Text title={singleArticle.title} body={singleArticle.body} />
+      <Votes votes={singleArticle.votes} article_id={article_id} />
+      <Comments
+        article_id={article_id}
+        comment_count={singleArticle.comment_count}
+      />
+    </main>
+  );
 }
 
 export default Article;
