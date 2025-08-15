@@ -5,11 +5,12 @@ function fetchArticles(topic, sortBy, orderBy) {
   } else {
     path += `?sort_by=${sortBy}&order=${orderBy}`;
   }
-  return fetch(path)
-    .then((response) => {
-      return response.json();
-    })
-    .catch((error) => error);
+  return fetch(path).then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  });
 }
 
 export default fetchArticles;

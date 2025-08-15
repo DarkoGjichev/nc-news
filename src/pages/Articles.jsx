@@ -3,6 +3,7 @@ import fetchArticles from "../api/fetch-articles";
 import Toolbar from "../components/articles-page/Toolbar";
 import ArticleCard from "../components/articles-page/ArticleCard";
 import { useSearchParams } from "react-router-dom";
+import ErrorPage from "../pages/ErrorPage";
 
 function Articles() {
   const [searchParams] = useSearchParams();
@@ -10,12 +11,19 @@ function Articles() {
   const [articles, setArticals] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("DESC");
+  const [error, setError] = useState(null);
   useEffect(() => {
-    fetchArticles(topic, sortBy, orderBy).then(({ articles }) => {
-      setArticals(articles);
-    });
+    fetchArticles(topic, sortBy, orderBy)
+      .then(({ articles }) => {
+        setArticals(articles);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }, [topic, sortBy, orderBy]);
-
+  if (error) {
+    return <ErrorPage />;
+  }
   return (
     <main className="main-container">
       <h1>
