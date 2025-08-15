@@ -39,13 +39,18 @@ nav a:hover {
   color: #efdb2d;
 }
 
-.main-container {
+.main-container,
+.article-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 964px;
   box-sizing: border-box;
   margin: 0 auto;
+}
+
+.article-container {
+  margin-top: 2rem;
 }
 
 .gallery-container {
